@@ -43,11 +43,12 @@ namespace BasicExample {
                 Console.WriteLine(vec);
 
             container.Bind<IHttpServer, MockHttpServer>();
-            container.Bind<DependentClass>();
+            container.Bind<DependentClass>(); //You may see this
 
             //MAYBE you need to "build" the container here, depending on the DI framework
 
             DependentClass c = container.Resolve<DependentClass>();
+            IHttpServer b = container.Resolve<IHttpServer>();
 
             Console.WriteLine("Waiting 2sec...");
             await Task.Delay(2000);

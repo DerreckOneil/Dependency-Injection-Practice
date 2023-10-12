@@ -4,7 +4,11 @@ namespace BasicExample {
     public class DependentClass : IDisposable {
         private IHttpServer server;
 
-        public DependentClass(IHttpServer server) {
+        /// <summary>
+        /// IHttpServer is a dependency
+        /// </summary>
+        /// <param name="server"></param>
+        public DependentClass(IHttpServer server) { 
             this.server = server;
 
             Console.WriteLine(nameof(DependentClass) + "'s ctor");
